@@ -15,7 +15,7 @@ public class ConexionDB {
 	/**
 	 * Nombre del driver que realiza la conexion con la base de datos
 	 */
-	private static final String DRIVER = "com.mysql.jdbc.Driver";
+	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	/**
 	 * URL de la base de datos
 	 */
