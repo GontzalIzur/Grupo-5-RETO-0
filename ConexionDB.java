@@ -55,7 +55,7 @@ public class ConexionDB {
 	 */
 	public static ArrayList<Sala> getSalas() {
 		ArrayList<Sala> salas = new ArrayList<Sala>();
-		String sql = "SELECT idAula, calefaccion, alarma FROM salas";
+		String sql = "SELECT idSala, calefaccion, alarma FROM salas";
 		if (conexion == null) {
 			getConexion();
 		}
@@ -80,14 +80,14 @@ public class ConexionDB {
 	 * @param sala sala a actualizar
 	 */
 	public static void updateSala(Sala sala) {
-		String sql = "UPDATE salas SET calefaccion = ?, alarma = ? WHERE idAula = ?";
+		String sql = "UPDATE salas SET calefaccion = ?, alarma = ? WHERE idSala = ?";
 		if (conexion == null) {
 			getConexion();
 		}
 		try (PreparedStatement pst = conexion.prepareStatement(sql)) {
 			pst.setBoolean(1, sala.isCalefaccion());
 			pst.setBoolean(2, sala.isAlarma());
-			pst.setString(3, sala.getidAula());
+			pst.setString(3, sala.getIdSala());
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

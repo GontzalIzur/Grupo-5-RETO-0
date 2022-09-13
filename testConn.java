@@ -7,8 +7,8 @@ public class testConn {
 		ConexionDB.getConexion();
 		ArrayList<Sala> salas = ConexionDB.getSalas();
 		for (Sala sala : salas) {
-			System.out.println(sala.getidAula() + " " + sala.isCalefaccion() + " " + sala.isAlarma());
-			if (sala.getidAula().equals("Aula003")) {
+			System.out.println(sala.getIdSala() + " " + sala.isCalefaccion() + " " + sala.isAlarma());
+			if (sala.getIdSala().equals("Aula003")) {
 				sala.setCalefaccion(true);
 				sala.setAlarma(true);
 				ConexionDB.updateSala(sala);
@@ -16,8 +16,8 @@ public class testConn {
 		}
 		salas = ConexionDB.getSalas();
 		for (Sala sala : salas) {
-			if (sala.getidAula().equals("Aula003")) {
-				System.out.println(sala.getidAula() + " " + sala.isCalefaccion() + " " + sala.isAlarma());
+			if (sala.getIdSala().equals("Aula003")) {
+				System.out.println(sala.getIdSala() + " " + sala.isCalefaccion() + " " + sala.isAlarma());
 			}
 		}
 	}

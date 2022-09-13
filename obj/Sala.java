@@ -1,22 +1,22 @@
 package obj;
 
 public class Sala {
-    private String idAula;
+    private String idSala;
     private boolean Calefaccion;
     private boolean Alarma;
 
     public Sala(String idAula, boolean Calefaccion, boolean Alarma) {
-        this.idAula = idAula;
+        this.idSala = idAula;
         this.Calefaccion = Calefaccion;
         this.Alarma = Alarma;
     }
 
-    public String getidAula() {
-        return idAula;
+    public String getIdSala() {
+        return idSala;
     }
 
-    public void setidAula(String idAula) {
-        this.idAula = idAula;
+    public void setIdSala(String idSala) {
+        this.idSala = idSala;
     }
 
     public boolean isCalefaccion() {
