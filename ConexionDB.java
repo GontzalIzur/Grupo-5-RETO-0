@@ -34,12 +34,12 @@ public class ConexionDB {
 	private static Connection conexion = null;
 
 	/**
-	 * Constructor vacio
+	 * Constructor privado 
 	 * @return
 	 */
-	public ConexionDB() {
+	private ConexionDB() {
 	}
-	
+
 	/**
 	 * Metodo que se encarga de realizar la conexion con la base de datos
 	 * 
