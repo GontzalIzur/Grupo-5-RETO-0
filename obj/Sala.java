@@ -19,12 +19,12 @@ public class Sala {
         this.idAula = idAula;
     }
 
-    public boolean isEncendido() {
+    public boolean isCalefaccion() {
         return Calefaccion;
     }
 
-    public void setEncendido(boolean encendido) {
-        this.Calefaccion = encendido;
+    public void setCalefaccion(boolean Calefaccion) {
+        this.Calefaccion = Calefaccion;
     }
 
     public boolean isAlarma() {
