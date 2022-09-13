@@ -41,8 +41,14 @@ public class ConexionDB {
 	public static Connection getConexion() {
 		try {
 			Class.forName(DRIVER);
+		} catch (ClassNotFoundException e) {
+			System.out.println("No se ha encontrado el driver");
+			e.printStackTrace();
+		}
+		try {
 			conexion = DriverManager.getConnection(DIRECCION, USUARIO, PASS);
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			System.out.println("No se ha podido conectar con la base de datos");
 			e.printStackTrace();
 		}
 		return conexion;
