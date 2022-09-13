@@ -1,24 +1,19 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import obj.Sala;
 
 public class testConn {
 	public static void main(String[] args) {
 		ConexionDB.getConexion();
-		ArrayList<Sala> salas = ConexionDB.getSalas();
-		for (Sala sala : salas) {
-			System.out.println(sala.getIdSala() + " " + sala.isCalefaccion() + " " + sala.isAlarma());
-			if (sala.getIdSala().equals("Aula003")) {
-				sala.setCalefaccion(true);
-				sala.setAlarma(true);
-				ConexionDB.updateSala(sala);
-			}
+		HashMap<String, boolean[]> salas = ConexionDB.getSalas();
+		for (String key : salas.keySet()) {
+			boolean[] values = salas.get(key);
+			System.out.println(key + " " + values[0] + " " + values[1]);
 		}
+		Sala prueba = new Sala("Aula006", true, true);
+		ConexionDB.updateSala(prueba);
 		salas = ConexionDB.getSalas();
-		for (Sala sala : salas) {
-			if (sala.getIdSala().equals("Aula003")) {
-				System.out.println(sala.getIdSala() + " " + sala.isCalefaccion() + " " + sala.isAlarma());
-			}
-		}
+		System.out.println("Aula006 " + salas.get("Aula006")[0] + " " + salas.get("Aula006")[1]);
 	}
 }

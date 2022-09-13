@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import obj.Sala;
 
@@ -34,6 +34,13 @@ public class ConexionDB {
 	private static Connection conexion = null;
 
 	/**
+	 * Constructor vacio
+	 * @return
+	 */
+	public ConexionDB() {
+	}
+	
+	/**
 	 * Metodo que se encarga de realizar la conexion con la base de datos
 	 * 
 	 * @return conexion con la base de datos
@@ -57,10 +64,10 @@ public class ConexionDB {
 	/**
 	 * Metodo que recupera todas las salas de la base de datos
 	 * 
-	 * @return ArrayList con todas las salas
+	 * @return HashMap con todas las salas
 	 */
-	public static ArrayList<Sala> getSalas() {
-		ArrayList<Sala> salas = new ArrayList<Sala>();
+	public static HashMap<String, boolean[]> getSalas() {
+		HashMap<String, boolean[]> salas = new HashMap<String, boolean[]>();
 		String sql = "SELECT idSala, calefaccion, alarma FROM salas";
 		if (conexion == null) {
 			getConexion();
@@ -68,8 +75,10 @@ public class ConexionDB {
 		try (PreparedStatement pst = conexion.prepareStatement(sql)) {
 			try (ResultSet rs = pst.executeQuery()) {
 				while (rs.next()) {
-					Sala sala = new Sala(rs.getString(1), rs.getBoolean(2), rs.getBoolean(3));
-					salas.add(sala);
+					String id = rs.getString("idSala");
+					boolean calefaccion = rs.getBoolean("calefaccion");
+					boolean alarma = rs.getBoolean("alarma");
+					salas.put(id, new boolean[] { calefaccion, alarma });
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
