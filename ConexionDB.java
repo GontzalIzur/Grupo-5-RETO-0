@@ -41,7 +41,7 @@ public class ConexionDB {
 	public static Connection getConexion() {
 		try {
 			Class.forName(DRIVER);
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			System.out.println("No se ha encontrado el driver");
 			e.printStackTrace();
 		}
