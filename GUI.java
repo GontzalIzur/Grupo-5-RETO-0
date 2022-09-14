@@ -1,17 +1,15 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTabbedPane;
-import java.awt.BorderLayout;
 import javax.swing.JPanel;
-import java.awt.GridLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
-public class GUI {
+public class GUI extends JFrame {
 
-	private JFrame frame;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -20,8 +18,8 @@ public class GUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI window = new GUI();
-					window.frame.setVisible(true);
+					GUI frame = new GUI();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -30,29 +28,38 @@ public class GUI {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public GUI() {
-		initialize();
-	}
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1017, 768);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1017, 768);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		frame.getContentPane().add(tabbedPane, BorderLayout.NORTH);
+		tabbedPane.setBounds(0, 0, 1001, 729);
+		contentPane.add(tabbedPane);
 		
-		JPanel Calefacciones = new JPanel();
-		tabbedPane.addTab("Calefacciones", null, Calefacciones, null);
+		JPanel calefacciones = new JPanel();
+		tabbedPane.addTab("Calefacciones", null, calefacciones, null);
+		calefacciones.setLayout(null);
 		
-		JPanel Alarmas = new JPanel();
-		Alarmas.setBounds(100, 100, 450, 300);
-		tabbedPane.addTab("Alarmas", null, Alarmas, null);
-		Alarmas.setLayout(null);
+		JLabel mapaCalefacciones = new JLabel("");
+		mapaCalefacciones.setBounds(0, 0, 1009, 701);
+		mapaCalefacciones.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
+		calefacciones.add(mapaCalefacciones);
+		
+		JPanel alarmas = new JPanel();
+		tabbedPane.addTab("Alarmas", null, alarmas, null);
+		alarmas.setLayout(null);
+		
+		JLabel mapaAlarmas = new JLabel("");
+		mapaAlarmas.setBounds(0, 0, 996, 701);
+		mapaAlarmas.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
+		alarmas.add(mapaAlarmas);
 	}
+
 }
