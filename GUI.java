@@ -1,8 +1,13 @@
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import obj.Sala;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -11,6 +16,7 @@ import java.awt.Color;
 
 public class GUI extends JFrame {
 
+	private HashMap<String, boolean[]> mapa = ConexionDB.getSalas();
 	private JPanel contentPane;
 
 	/**
@@ -49,150 +55,154 @@ public class GUI extends JFrame {
 		tabbedPane.addTab("Calefacciones", null, calefacciones, null);
 		calefacciones.setLayout(null);
 		
-		JButton btnTallerMante = new JButton("");
-		btnTallerMante.setBackground(Color.RED);
-		btnTallerMante.setBounds(354, 135, 18, 18);
-		calefacciones.add(btnTallerMante);
+		JButton TallerMantenimiento = new JButton("");
+		TallerMantenimiento.setBackground(Color.RED);
+		TallerMantenimiento.setBounds(354, 135, 18, 18);
+		calefacciones.add(TallerMantenimiento);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBackground(Color.RED);
-		btnNewButton_1.setBounds(260, 316, 18, 18);
-		calefacciones.add(btnNewButton_1);
+		JButton Aula014 = new JButton("");
+		Aula014.setBackground(Color.RED);
+		Aula014.setBounds(260, 316, 18, 18);
+		calefacciones.add(Aula014);
 		
-		JButton btnNewButton_1_1_1 = new JButton("");
-		btnNewButton_1_1_1.setBackground(Color.RED);
-		btnNewButton_1_1_1.setBounds(423, 304, 18, 18);
-		calefacciones.add(btnNewButton_1_1_1);
+		JButton Aula012 = new JButton("");
+		Aula012.setBackground(Color.RED);
+		Aula012.setBounds(423, 304, 18, 18);
+		calefacciones.add(Aula012);
 		
-		JButton btnNewButton_1_1 = new JButton("");
-		btnNewButton_1_1.setBackground(Color.RED);
-		btnNewButton_1_1.setBounds(342, 304, 18, 18);
-		calefacciones.add(btnNewButton_1_1);
+		JButton Aula013 = new JButton("");
+		Aula013.setBackground(Color.RED);
+		Aula013.setBounds(342, 304, 18, 18);
+		calefacciones.add(Aula013);
 		
-		JButton btnNewButton_1_1_2 = new JButton("");
-		btnNewButton_1_1_2.setBackground(Color.RED);
-		btnNewButton_1_1_2.setBounds(402, 347, 18, 18);
-		calefacciones.add(btnNewButton_1_1_2);
+		JButton PasoAula013 = new JButton("");
+		PasoAula013.setBackground(Color.RED);
+		PasoAula013.setBounds(402, 347, 18, 18);
+		calefacciones.add(PasoAula013);
 		
-		JButton btnNewButton_1_1_3 = new JButton("");
-		btnNewButton_1_1_3.setBackground(Color.RED);
-		btnNewButton_1_1_3.setBounds(454, 374, 18, 18);
-		calefacciones.add(btnNewButton_1_1_3);
+		JButton Hall = new JButton("");
+		Hall.setBackground(Color.RED);
+		Hall.setBounds(454, 374, 18, 18);
+		calefacciones.add(Hall);
 		
-		JButton btnNewButton_1_1_4 = new JButton("");
-		btnNewButton_1_1_4.setBackground(Color.RED);
-		btnNewButton_1_1_4.setBounds(532, 374, 18, 18);
-		calefacciones.add(btnNewButton_1_1_4);
+		JButton Almacen1 = new JButton("");
+		Almacen1.setBackground(Color.RED);
+		Almacen1.setBounds(532, 374, 18, 18);
+		calefacciones.add(Almacen1);
 		
-		JButton btnNewButton_1_1_5 = new JButton("");
-		btnNewButton_1_1_5.setBackground(Color.RED);
-		btnNewButton_1_1_5.setBounds(585, 374, 18, 18);
-		calefacciones.add(btnNewButton_1_1_5);
+		JButton Almacen2 = new JButton("");
+		Almacen2.setBackground(Color.RED);
+		Almacen2.setBounds(585, 374, 18, 18);
+		calefacciones.add(Almacen2);
 		
-		JButton btnNewButton_1_1_6 = new JButton("");
-		btnNewButton_1_1_6.setBackground(Color.RED);
-		btnNewButton_1_1_6.setBounds(847, 374, 18, 18);
-		calefacciones.add(btnNewButton_1_1_6);
+		JButton Almacen3 = new JButton("");
+		Almacen3.setBackground(Color.RED);
+		Almacen3.setBounds(847, 374, 18, 18);
+		calefacciones.add(Almacen3);
 		
-		JButton btnNewButton_1_1_7 = new JButton("");
-		btnNewButton_1_1_7.setBackground(Color.RED);
-		btnNewButton_1_1_7.setBounds(433, 485, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7);
+		JButton Aula015 = new JButton("");
+		Aula015.setBackground(Color.RED);
+		Aula015.setBounds(433, 485, 18, 18);
+		calefacciones.add(Aula015);
 		
-		JButton btnNewButton_1_1_8 = new JButton("");
-		btnNewButton_1_1_8.setBackground(Color.RED);
-		btnNewButton_1_1_8.setBounds(532, 472, 18, 18);
-		calefacciones.add(btnNewButton_1_1_8);
+		JButton Aula010 = new JButton("");
+		Aula010.setBackground(Color.RED);
+		Aula010.setBounds(532, 472, 18, 18);
+		calefacciones.add(Aula010);
 		
-		JButton btnNewButton_1_1_9 = new JButton("");
-		btnNewButton_1_1_9.setBackground(Color.RED);
-		btnNewButton_1_1_9.setBounds(433, 562, 18, 18);
-		calefacciones.add(btnNewButton_1_1_9);
+		JButton Aula016 = new JButton("");
+		Aula016.setBackground(Color.RED);
+		Aula016.setBounds(433, 562, 18, 18);
+		calefacciones.add(Aula016);
 		
-		JButton btnNewButton_1_1_10 = new JButton("");
-		btnNewButton_1_1_10.setBackground(Color.RED);
-		btnNewButton_1_1_10.setBounds(520, 543, 18, 18);
-		calefacciones.add(btnNewButton_1_1_10);
+		JButton Archivo = new JButton("");
+		Archivo.setBackground(Color.RED);
+		Archivo.setBounds(520, 543, 18, 18);
+		calefacciones.add(Archivo);
 		
-		JButton btnNewButton_1_1_11 = new JButton("");
-		btnNewButton_1_1_11.setBackground(Color.RED);
-		btnNewButton_1_1_11.setBounds(489, 500, 18, 18);
-		calefacciones.add(btnNewButton_1_1_11);
+		JButton PasoAula016 = new JButton("");
+		PasoAula016.setBackground(Color.RED);
+		PasoAula016.setBounds(489, 500, 18, 18);
+		calefacciones.add(PasoAula016);
 		
-		JButton btnNewButton_1_1_7_1 = new JButton("");
-		btnNewButton_1_1_7_1.setBackground(Color.RED);
-		btnNewButton_1_1_7_1.setBounds(532, 511, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_1);
+		JButton AseoMinusval = new JButton("");
+		AseoMinusval.setBackground(Color.RED);
+		AseoMinusval.setBounds(532, 511, 18, 18);
+		calefacciones.add(AseoMinusval);
 		
-		JButton btnNewButton_1_1_7_2 = new JButton("");
-		btnNewButton_1_1_7_2.setBackground(Color.RED);
-		btnNewButton_1_1_7_2.setBounds(585, 579, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_2);
+		JButton Aula007 = new JButton("");
+		Aula007.setBackground(Color.RED);
+		Aula007.setBounds(585, 579, 18, 18);
+		calefacciones.add(Aula007);
 		
-		JButton btnNewButton_1_1_7_3 = new JButton("");
-		btnNewButton_1_1_7_3.setBackground(Color.RED);
-		btnNewButton_1_1_7_3.setBounds(683, 579, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_3);
+		JButton Aula006 = new JButton("");
+		Aula006.setBackground(Color.RED);
+		Aula006.setBounds(683, 579, 18, 18);
+		calefacciones.add(Aula006);
 		
-		JButton btnNewButton_1_1_7_4 = new JButton("");
-		btnNewButton_1_1_7_4.setBackground(Color.RED);
-		btnNewButton_1_1_7_4.setBounds(671, 648, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_4);
+		JButton Vestibulo = new JButton("");
+		Vestibulo.setBackground(Color.RED);
+		Vestibulo.setBounds(671, 648, 18, 18);
+		calefacciones.add(Vestibulo);
 		
-		JButton btnNewButton_1_1_7_5 = new JButton("");
-		btnNewButton_1_1_7_5.setBackground(Color.RED);
-		btnNewButton_1_1_7_5.setBounds(561, 613, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_5);
+		JButton PasoVestibulo = new JButton("");
+		PasoVestibulo.setBackground(Color.RED);
+		PasoVestibulo.setBounds(561, 613, 18, 18);
+		calefacciones.add(PasoVestibulo);
 		
-		JButton btnNewButton_1_1_7_6 = new JButton("");
-		btnNewButton_1_1_7_6.setBackground(Color.RED);
-		btnNewButton_1_1_7_6.setBounds(768, 660, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_6);
+		JButton SalaAlumnos = new JButton("");
+		SalaAlumnos.setBackground(Color.RED);
+		SalaAlumnos.setBounds(768, 660, 18, 18);
+		calefacciones.add(SalaAlumnos);
 		
-		JButton btnNewButton_1_1_7_7 = new JButton("");
-		btnNewButton_1_1_7_7.setBackground(Color.RED);
-		btnNewButton_1_1_7_7.setBounds(847, 660, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_7);
+		JButton SalaProfesores = new JButton("");
+		SalaProfesores.setBackground(Color.RED);
+		SalaProfesores.setBounds(847, 660, 18, 18);
+		calefacciones.add(SalaProfesores);
 		
-		JButton btnNewButton_1_1_7_8 = new JButton("");
-		btnNewButton_1_1_7_8.setBackground(Color.RED);
-		btnNewButton_1_1_7_8.setBounds(898, 660, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_8);
+		JButton Aula003 = new JButton("");
+		Aula003.setBackground(Color.RED);
+		Aula003.setBounds(898, 660, 18, 18);
+		calefacciones.add(Aula003);
 		
-		JButton btnNewButton_1_1_7_9 = new JButton("");
-		btnNewButton_1_1_7_9.setBackground(Color.RED);
-		btnNewButton_1_1_7_9.setBounds(898, 579, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_9);
+		JButton DPTInformatica = new JButton("");
+		DPTInformatica.setBackground(Color.RED);
+		DPTInformatica.setBounds(898, 579, 18, 18);
+		calefacciones.add(DPTInformatica);
 		
-		JButton btnNewButton_1_1_7_10 = new JButton("");
-		btnNewButton_1_1_7_10.setBackground(Color.RED);
-		btnNewButton_1_1_7_10.setBounds(811, 579, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_10);
+		JButton DPTFOL = new JButton("");
+		DPTFOL.setBackground(Color.RED);
+		DPTFOL.setBounds(811, 579, 18, 18);
+		calefacciones.add(DPTFOL);
 		
-		JButton btnNewButton_1_1_7_11 = new JButton("");
-		btnNewButton_1_1_7_11.setBackground(Color.RED);
-		btnNewButton_1_1_7_11.setBounds(768, 579, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_11);
+		JButton Aula005B = new JButton("");
+		Aula005B.setBackground(Color.RED);
+		Aula005B.setBounds(768, 579, 18, 18);
+		calefacciones.add(Aula005B);
 		
-		JButton btnNewButton_1_1_7_12 = new JButton("");
-		btnNewButton_1_1_7_12.setBackground(Color.RED);
-		btnNewButton_1_1_7_12.setBounds(157, 579, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_12);
+		JButton VestuarioLimpieza = new JButton("");
+		VestuarioLimpieza.setBackground(Color.RED);
+		VestuarioLimpieza.setBounds(157, 579, 18, 18);
+		calefacciones.add(VestuarioLimpieza);
 		
-		JButton btnNewButton_1_1_7_13 = new JButton("");
-		btnNewButton_1_1_7_13.setBackground(Color.RED);
-		btnNewButton_1_1_7_13.setBounds(219, 596, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_13);
+		JButton AseoFem = new JButton("");
+		AseoFem.setBackground(Color.RED);
+		AseoFem.setBounds(219, 596, 18, 18);
+		calefacciones.add(AseoFem);
 		
-		JButton btnNewButton_1_1_7_14 = new JButton("");
-		btnNewButton_1_1_7_14.setBackground(Color.RED);
-		btnNewButton_1_1_7_14.setBounds(273, 596, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_14);
+		JButton AseoMasc = new JButton("");
+		AseoMasc.setBackground(Color.RED);
+		AseoMasc.setBounds(273, 596, 18, 18);
+		calefacciones.add(AseoMasc);
 		
-		JButton btnNewButton_1_1_7_15 = new JButton("");
-		btnNewButton_1_1_7_15.setBackground(Color.RED);
-		btnNewButton_1_1_7_15.setBounds(608, 667, 18, 18);
-		calefacciones.add(btnNewButton_1_1_7_15);
+		JButton Conserjeria = new JButton("");
+		Conserjeria.setBackground(Color.RED);
+		Conserjeria.setBounds(608, 667, 18, 18);
+		calefacciones.add(Conserjeria);
+		
+		JLabel lblNewLabel = new JLabel(Conserjeria.getName());
+		lblNewLabel.setBounds(111, 257, 46, 14);
+		calefacciones.add(lblNewLabel);
 		
 		JLabel mapaCalefacciones = new JLabel("");
 		mapaCalefacciones.setBounds(0, 0, 1009, 701);
@@ -208,4 +218,15 @@ public class GUI extends JFrame {
 		mapaAlarmas.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
 		alarmas.add(mapaAlarmas);
 	}
+
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		JButton boton = (JButton) e.getSource();
+//		String nombre = boton.getName();
+//		Sala salaActualizada = new Sala(nombre, !mapa.get(nombre)[0], mapa.get(nombre)[1]);
+//		if (ConexionDB.updateSala(salaActualizada)) {
+//			mapa = ConexionDB.getSalas();
+//		}
+//		//doing something
+//	}
 }
