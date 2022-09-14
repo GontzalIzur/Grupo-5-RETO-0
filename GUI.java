@@ -200,6 +200,10 @@ public class GUI extends JFrame {
 		Conserjeria.setBounds(608, 667, 18, 18);
 		calefacciones.add(Conserjeria);
 		
+		JLabel lblNewLabel = new JLabel(Conserjeria.getName());
+		lblNewLabel.setBounds(111, 257, 46, 14);
+		calefacciones.add(lblNewLabel);
+		
 		JLabel mapaCalefacciones = new JLabel("");
 		mapaCalefacciones.setBounds(0, 0, 1009, 701);
 		mapaCalefacciones.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
@@ -215,15 +219,14 @@ public class GUI extends JFrame {
 		alarmas.add(mapaAlarmas);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		JButton boton = (JButton) e.getSource();
-		String nombre = boton.getName();
-		Sala salaActualizada = new Sala(nombre, !mapa.get(nombre)[0], mapa.get(nombre)[1]);
-		if (ConexionDB.updateSala(salaActualizada)) {
-			mapa = ConexionDB.getSalas();
-		}
-		//doing something
-	}
-
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		JButton boton = (JButton) e.getSource();
+//		String nombre = boton.getName();
+//		Sala salaActualizada = new Sala(nombre, !mapa.get(nombre)[0], mapa.get(nombre)[1]);
+//		if (ConexionDB.updateSala(salaActualizada)) {
+//			mapa = ConexionDB.getSalas();
+//		}
+//		//doing something
+//	}
 }
