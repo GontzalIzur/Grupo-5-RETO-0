@@ -1,14 +1,21 @@
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.util.HashMap;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import obj.Sala;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 public class GUI extends JFrame {
 
+	private HashMap<String, boolean[]> mapa = ConexionDB.getSalas();
 	private JPanel contentPane;
 
 	/**
@@ -60,6 +67,17 @@ public class GUI extends JFrame {
 		mapaAlarmas.setBounds(0, 0, 996, 701);
 		mapaAlarmas.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
 		alarmas.add(mapaAlarmas);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton boton = (JButton) e.getSource();
+		String nombre = boton.getName();
+		Sala salaActualizada = new Sala(nombre, !mapa.get(nombre)[0], mapa.get(nombre)[1]);
+		if (ConexionDB.updateSala(salaActualizada)) {
+			mapa = ConexionDB.getSalas();
+		}
+		//doing something
 	}
 
 }
