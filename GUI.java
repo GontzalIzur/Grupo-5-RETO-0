@@ -49,10 +49,10 @@ public class GUI extends JFrame {
 		tabbedPane.addTab("Calefacciones", null, calefacciones, null);
 		calefacciones.setLayout(null);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBackground(Color.RED);
-		btnNewButton.setBounds(354, 135, 18, 18);
-		calefacciones.add(btnNewButton);
+		JButton btnTallerMante = new JButton("");
+		btnTallerMante.setBackground(Color.RED);
+		btnTallerMante.setBounds(354, 135, 18, 18);
+		calefacciones.add(btnTallerMante);
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.setBackground(Color.RED);
