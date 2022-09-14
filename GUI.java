@@ -6,6 +6,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.Color;
 
 public class GUI extends JFrame {
 
@@ -47,6 +49,26 @@ public class GUI extends JFrame {
 		tabbedPane.addTab("Calefacciones", null, calefacciones, null);
 		calefacciones.setLayout(null);
 		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setBounds(354, 135, 18, 18);
+		calefacciones.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setBackground(Color.RED);
+		btnNewButton_1.setBounds(260, 316, 18, 18);
+		calefacciones.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1_1 = new JButton("");
+		btnNewButton_1_1_1.setBackground(Color.RED);
+		btnNewButton_1_1_1.setBounds(423, 304, 18, 18);
+		calefacciones.add(btnNewButton_1_1_1);
+		
+		JButton btnNewButton_1_1 = new JButton("");
+		btnNewButton_1_1.setBackground(Color.RED);
+		btnNewButton_1_1.setBounds(342, 304, 18, 18);
+		calefacciones.add(btnNewButton_1_1);
+		
 		JLabel mapaCalefacciones = new JLabel("");
 		mapaCalefacciones.setBounds(0, 0, 1009, 701);
 		mapaCalefacciones.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
@@ -61,5 +83,4 @@ public class GUI extends JFrame {
 		mapaAlarmas.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
 		alarmas.add(mapaAlarmas);
 	}
-
 }
