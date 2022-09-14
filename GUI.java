@@ -6,6 +6,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.Color;
 
 public class GUI extends JFrame {
 
@@ -55,6 +57,31 @@ public class GUI extends JFrame {
 		JPanel alarmas = new JPanel();
 		tabbedPane.addTab("Alarmas", null, alarmas, null);
 		alarmas.setLayout(null);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setBounds(454, 382, 18, 18);
+		alarmas.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setBackground(Color.RED);
+		btnNewButton_1.setBounds(393, 347, 18, 18);
+		alarmas.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("");
+		btnNewButton_1_1.setBackground(Color.RED);
+		btnNewButton_1_1.setBounds(683, 645, 18, 18);
+		alarmas.add(btnNewButton_1_1);
+		
+		JButton btnNewButton_1_1_1 = new JButton("");
+		btnNewButton_1_1_1.setBackground(Color.RED);
+		btnNewButton_1_1_1.setBounds(489, 462, 18, 18);
+		alarmas.add(btnNewButton_1_1_1);
+		
+		JButton btnNewButton_1_1_1_1 = new JButton("");
+		btnNewButton_1_1_1_1.setBackground(Color.RED);
+		btnNewButton_1_1_1_1.setBounds(845, 611, 18, 18);
+		alarmas.add(btnNewButton_1_1_1_1);
 		
 		JLabel mapaAlarmas = new JLabel("");
 		mapaAlarmas.setBounds(0, 0, 996, 701);
