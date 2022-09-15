@@ -46,6 +46,7 @@ public class GUI extends JFrame implements ActionListener {
 		contentPane = new JPanel();
 		setTitle("Mapa de salas");
 		setResizable(false);
+		setIconImage(new ImageIcon(getClass().getResource("Media/Plano.jpg")).getImage());
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
