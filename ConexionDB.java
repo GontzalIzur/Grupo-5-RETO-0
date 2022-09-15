@@ -34,7 +34,8 @@ public class ConexionDB {
 	private static Connection conexion = null;
 
 	/**
-	 * Constructor privado 
+	 * Constructor privado
+	 * 
 	 * @return
 	 */
 	private ConexionDB() {
@@ -62,9 +63,11 @@ public class ConexionDB {
 	}
 
 	/**
-	 * Metodo que recupera todas las salas de la base de datos
+	 * Metodo que recupera todas las salas de la base de datos, el mapa utilizara el
+	 * id de la sala como clave y un array de booleanos como valores que
+	 * corresponderan a [calefaccion, alarma]
 	 * 
-	 * @return HashMap con todas las salas
+	 * @return HashMap<String id, boolean[calefaccion, alarma]> con todas las salas
 	 */
 	public static HashMap<String, boolean[]> getSalas() {
 		HashMap<String, boolean[]> salas = new HashMap<String, boolean[]>();
@@ -94,7 +97,7 @@ public class ConexionDB {
 	 * 
 	 * @param sala sala a actualizar
 	 */
-	public static void updateSala(Sala sala) {
+	public static boolean updateSala(Sala sala) {
 		String sql = "UPDATE salas SET calefaccion = ?, alarma = ? WHERE idSala = ?";
 		if (conexion == null) {
 			getConexion();
@@ -106,7 +109,9 @@ public class ConexionDB {
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 
 }
