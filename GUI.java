@@ -241,7 +241,7 @@ public class GUI extends JFrame implements ActionListener {
 		
 		JButton TallerMantenimiento_1 = new JButton("");
 		TallerMantenimiento_1.setName("TallerMantenimiento");
-		TallerMantenimiento_1.setBackground(Color.RED);
+		TallerMantenimiento_1.setBackground(mapa.get("TallerMantenimiento")[1] ? Color.GREEN : Color.RED);
 		TallerMantenimiento_1.setBounds(354, 135, 18, 18);
 		alarmas.add(TallerMantenimiento_1);
 		
