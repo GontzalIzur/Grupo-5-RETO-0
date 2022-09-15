@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.HashMap;
 
@@ -14,7 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements ActionListener {
 
 	private HashMap<String, boolean[]> mapa = ConexionDB.getSalas();
 	private JPanel contentPane;
@@ -244,14 +245,15 @@ public class GUI extends JFrame {
 		alarmas.add(mapaAlarmas);
 	}
 
-//	@Override
-//	public void actionPerformed(ActionEvent e) {
-//		JButton boton = (JButton) e.getSource();
-//		String nombre = boton.getName();
-//		Sala salaActualizada = new Sala(nombre, !mapa.get(nombre)[0], mapa.get(nombre)[1]);
-//		if (ConexionDB.updateSala(salaActualizada)) {
-//			mapa = ConexionDB.getSalas();
-//		}
-//		//doing something
-//	}
+	// Método que actualiza el estado de las calefacciones
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton boton = (JButton) e.getSource();
+		String nombre = boton.getName();
+		Sala salaActualizada = new Sala(nombre, !mapa.get(nombre)[0], mapa.get(nombre)[1]);
+		if (ConexionDB.updateSala(salaActualizada)) {
+			mapa = ConexionDB.getSalas();
+			boton.setBackground(mapa.get(nombre)[0] ? Color.GREEN : Color.RED);
+		}
+	}
 }
