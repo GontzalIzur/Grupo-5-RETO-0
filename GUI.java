@@ -483,7 +483,6 @@ public class GUI extends JFrame implements ActionListener {
 		alarmas.add(mapaAlarmas);
 	}
 
-	// Método que actualiza el estado de las calefacciones
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton boton = (JButton) e.getSource();
@@ -494,6 +493,7 @@ public class GUI extends JFrame implements ActionListener {
 				Sala salaActualizada = new Sala(nombre, !mapa.get(nombre)[0], mapa.get(nombre)[1]);
 				if (ConexionDB.updateSala(salaActualizada)) {
 					mapa = ConexionDB.getSalas();
+					boton.setBackground(mapa.get(nombre)[0] ? Color.GREEN : Color.RED);
 				}
 				else {
 					JOptionPane.showMessageDialog(null, "Error al actualizar la sala", "Error", JOptionPane.ERROR_MESSAGE);
@@ -503,6 +503,7 @@ public class GUI extends JFrame implements ActionListener {
 				if (!mapa.get(nombre)[1]) {
 					ConexionDB.updateSala(new Sala(nombre, mapa.get(nombre)[0], true));
 					mapa = ConexionDB.getSalas();
+					boton.setBackground(mapa.get(nombre)[1] ? Color.GREEN : Color.RED);
 				} else {
 					JOptionPane.showMessageDialog(null, "No puedes hacer saltar las alarmas!", "Error", JOptionPane.ERROR_MESSAGE);
 				}
@@ -510,7 +511,6 @@ public class GUI extends JFrame implements ActionListener {
 			default:
 				break;
 		}
-		boton.setBackground(mapa.get(nombre)[0] ? Color.GREEN : Color.RED);
 
 	}
 }
