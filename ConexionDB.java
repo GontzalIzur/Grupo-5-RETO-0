@@ -64,13 +64,12 @@ public class ConexionDB {
 
 	/**
 	 * Metodo que recupera todas las salas de la base de datos, el mapa utilizara el
-	 * id de la sala como clave y un array de booleanos como valores que
-	 * corresponderan a [calefaccion, alarma]
+	 * id de la sala como clave y el objeto de la sala como valor
 	 * 
-	 * @return HashMap<String id, boolean[calefaccion, alarma]> con todas las salas
+	 * @return HashMap<String id, Sala sala> con todas las salas
 	 */
-	public static HashMap<String, boolean[]> getSalas() {
-		HashMap<String, boolean[]> salas = new HashMap<String, boolean[]>();
+	public static HashMap<String, Sala> getSalas() {
+		HashMap<String, Sala> salas = new HashMap<String, Sala>();
 		String sql = "SELECT idSala, calefaccion, alarma FROM salas";
 		if (conexion == null) {
 			getConexion();
@@ -81,7 +80,8 @@ public class ConexionDB {
 					String id = rs.getString("idSala");
 					boolean calefaccion = rs.getBoolean("calefaccion");
 					boolean alarma = rs.getBoolean("alarma");
-					salas.put(id, new boolean[] { calefaccion, alarma });
+					Sala sala = new Sala(id, calefaccion, alarma);
+					salas.put(id, sala);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

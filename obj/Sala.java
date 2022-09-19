@@ -67,6 +67,13 @@ public class Sala {
     }
 
     /**
+     * Metodo que alterna el estado de la calefaccion
+     */
+    public void toggleCalefaccion() {
+        this.calefaccion = !this.calefaccion;
+    }
+
+    /**
      * Metodo que devuelve el estado de la alarma
      * 
      * @return estado de la alarma
@@ -83,4 +90,5 @@ public class Sala {
     public void setAlarma(boolean alarma) {
         this.alarma = alarma;
     }
+
 }
