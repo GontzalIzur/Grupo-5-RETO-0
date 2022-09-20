@@ -1,9 +1,13 @@
+package src;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+
+import src.obj.Sala;
 
 /**
  * Clase que se encarga de la conexion con la base de datos

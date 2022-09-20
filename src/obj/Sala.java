@@ -1,4 +1,8 @@
+package src.obj;
+
 import javax.swing.JOptionPane;
+
+import src.ConexionDB;
 
 /**
  * Objeto de la clase sala

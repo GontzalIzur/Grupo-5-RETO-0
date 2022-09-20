@@ -1,3 +1,5 @@
+package src;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -6,9 +8,11 @@ import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import src.obj.Sala;
+
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
