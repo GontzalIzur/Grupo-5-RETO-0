@@ -6,9 +6,6 @@ import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import obj.Sala;
-
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,7 +15,10 @@ import java.awt.Color;
 
 public class GUI extends JFrame implements ActionListener {
 
-	/* Mapa de todas las salas de las cuales guarda el id y la información de la sala */
+	/*
+	 * Mapa de todas las salas de las cuales guarda el id y la información de la
+	 * sala
+	 */
 	private HashMap<String, Sala> mapa = ConexionDB.getSalas();
 	private JPanel contentPane;
 
@@ -269,7 +269,7 @@ public class GUI extends JFrame implements ActionListener {
 		calefacciones.add(conserjeriaCalefaccion);
 		// FINAL BOTONES CALEFACCIÓN
 
-		//Imagen del mapa de las calefacciones
+		// Imagen del mapa de las calefacciones
 		JLabel mapaCalefacciones = new JLabel("");
 		mapaCalefacciones.setBounds(0, 0, 1009, 701);
 		mapaCalefacciones.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
@@ -485,7 +485,7 @@ public class GUI extends JFrame implements ActionListener {
 		alarmas.add(conserjeriaAlarma);
 		// FINAL BOTONES ALARMA
 
-		//Imagen del mapa de las alarmas
+		// Imagen del mapa de las alarmas
 		JLabel mapaAlarmas = new JLabel("");
 		mapaAlarmas.setBounds(0, 0, 996, 701);
 		mapaAlarmas.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
@@ -507,28 +507,16 @@ public class GUI extends JFrame implements ActionListener {
 		boolean update = false;
 		switch (nombreContenedor) {
 			case "Calefacciones":
-				sala.toggleCalefaccion();
-				update = true;
+				update = sala.toggleCalefaccion();
 				break;
 			case "Alarmas":
-				if (!sala.isAlarma()) {
-					sala.setAlarma(true);
-					update = true;
-				} else {
-					JOptionPane.showMessageDialog(null, "No puedes hacer saltar las alarmas!", "Error",
-							JOptionPane.ERROR_MESSAGE);
-				}
+				update = sala.toggleAlarma();
 				break;
 			default:
 				break;
 		}
 		if (update) {
-			if (ConexionDB.updateSala(sala)) {
-				boton.setBackground(sala.isCalefaccion() ? Color.GREEN : Color.RED);
-			} else {
-				JOptionPane.showMessageDialog(null, "Error al actualizar la sala en la base de datos", "Error",
-						JOptionPane.ERROR_MESSAGE);
-			}
+			boton.setBackground(sala.isCalefaccion() ? Color.GREEN : Color.RED);
 		}
 	}
 }

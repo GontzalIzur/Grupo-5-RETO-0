@@ -1,4 +1,4 @@
-package obj;
+import javax.swing.JOptionPane;
 
 /**
  * Objeto de la clase sala
@@ -67,10 +67,20 @@ public class Sala {
     }
 
     /**
-     * Metodo que alterna el estado de la calefaccion
+     * Metodo que alterna el estado de la calefaccion y lo actualiza en la base de datos
+     * 
+     * @return true si se ha actualizado correctamente, false si no
      */
-    public void toggleCalefaccion() {
+    public boolean toggleCalefaccion() {
         this.calefaccion = !this.calefaccion;
+        if (ConexionDB.updateSala(this)) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al modificar la base de datos", "Error",
+							JOptionPane.ERROR_MESSAGE);
+            this.calefaccion = !this.calefaccion;
+            return false;
+        }
     }
 
     /**
@@ -89,6 +99,28 @@ public class Sala {
      */
     public void setAlarma(boolean alarma) {
         this.alarma = alarma;
+    }
+
+    /**
+     * Metodo que alterna el estado de la alarma y lo actualiza en la base de datos
+     * 
+     * @return true si se ha actualizado correctamente, false si no
+     */
+    public boolean toggleAlarma() {
+        if (this.alarma){
+            JOptionPane.showMessageDialog(null, "No puedes hacer saltar las alarmas!", "Error",
+							JOptionPane.ERROR_MESSAGE);
+        } else{
+            this.alarma = !this.alarma;
+            if (ConexionDB.updateSala(this)) {
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al modificar la base de datos", "Error",
+							JOptionPane.ERROR_MESSAGE);
+                this.alarma = !this.alarma;
+            }
+        }
+        return false;
     }
 
 }

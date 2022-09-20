@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import obj.Sala;
-
 /**
  * Clase que se encarga de la conexion con la base de datos
  */
