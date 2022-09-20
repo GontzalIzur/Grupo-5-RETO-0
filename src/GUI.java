@@ -51,7 +51,7 @@ public class GUI extends JFrame implements ActionListener {
 		contentPane = new JPanel();
 		setTitle("Mapa de salas");
 		setResizable(false);
-		setIconImage(new ImageIcon(getClass().getResource("Media/ICON.png")).getImage());
+		setIconImage(new ImageIcon(getClass().getResource("/Media/ICON.png")).getImage());
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -276,7 +276,7 @@ public class GUI extends JFrame implements ActionListener {
 		// Imagen del mapa de las calefacciones
 		JLabel mapaCalefacciones = new JLabel("");
 		mapaCalefacciones.setBounds(0, 0, 1009, 701);
-		mapaCalefacciones.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
+		mapaCalefacciones.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado.png")));
 		calefacciones.add(mapaCalefacciones);
 
 		JPanel alarmas = new JPanel();
@@ -492,7 +492,7 @@ public class GUI extends JFrame implements ActionListener {
 		// Imagen del mapa de las alarmas
 		JLabel mapaAlarmas = new JLabel("");
 		mapaAlarmas.setBounds(0, 0, 996, 701);
-		mapaAlarmas.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado (Mediana).png")));
+		mapaAlarmas.setIcon(new ImageIcon(GUI.class.getResource("/Media/PlanoEditado.png")));
 		alarmas.add(mapaAlarmas);
 	}
 
