@@ -524,7 +524,6 @@ public class GUI extends JFrame implements ActionListener {
 		}
 		if (update) {
 			if (ConexionDB.updateSala(sala)) {
-				mapa.put(sala.getIdSala(), sala);
 				boton.setBackground(sala.isCalefaccion() ? Color.GREEN : Color.RED);
 			} else {
 				JOptionPane.showMessageDialog(null, "Error al actualizar la sala en la base de datos", "Error",
